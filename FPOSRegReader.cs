@@ -77,13 +77,13 @@ namespace AutoReportRegistryBuilder{
         }
 
         public static void exeCheck(){
-            foreach(var r in reports.Keys){
-                if(File.Exists($"{FPOS6Path}{reports[r]}")){
-                    Console.WriteLine($"{FPOS6Path}{reports[r]} succesfully validated.");
-                }else if(reports[r] == ""){
-                    Console.WriteLine($"{r} has no associated executable.");
+            foreach(var k in reports.Keys){
+                if(File.Exists($"{FPOS6Path}{reports[k]}")){
+                    Console.WriteLine($"{FPOS6Path}{reports[k]} succesfully validated.");
+                }else if(reports[k] == ""){
+                    Console.WriteLine($"{k} has no associated executable.");
                 }else{
-                    Console.Error.WriteLine($"{FPOS6Path}{reports[r]} not found!");
+                    Console.Error.WriteLine($"{FPOS6Path}{reports[k]} not found!");
                 }
             }
         }
