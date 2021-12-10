@@ -1,0 +1,15 @@
+C:\Projects\AutoReportRegistryBuilder\bin\Debug\net6.0\AutoReportRegistryBuilder.exe
+C:\Projects\AutoReportRegistryBuilder\bin\Debug\net6.0\AutoReportRegistryBuilder.deps.json
+C:\Projects\AutoReportRegistryBuilder\bin\Debug\net6.0\AutoReportRegistryBuilder.runtimeconfig.json
+C:\Projects\AutoReportRegistryBuilder\bin\Debug\net6.0\AutoReportRegistryBuilder.dll
+C:\Projects\AutoReportRegistryBuilder\bin\Debug\net6.0\ref\AutoReportRegistryBuilder.dll
+C:\Projects\AutoReportRegistryBuilder\bin\Debug\net6.0\AutoReportRegistryBuilder.pdb
+C:\Projects\AutoReportRegistryBuilder\obj\Debug\net6.0\AutoReportRegistryBuilder.csproj.AssemblyReference.cache
+C:\Projects\AutoReportRegistryBuilder\obj\Debug\net6.0\AutoReportRegistryBuilder.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\AutoReportRegistryBuilder\obj\Debug\net6.0\AutoReportRegistryBuilder.AssemblyInfoInputs.cache
+C:\Projects\AutoReportRegistryBuilder\obj\Debug\net6.0\AutoReportRegistryBuilder.AssemblyInfo.cs
+C:\Projects\AutoReportRegistryBuilder\obj\Debug\net6.0\AutoReportRegistryBuilder.csproj.CoreCompileInputs.cache
+C:\Projects\AutoReportRegistryBuilder\obj\Debug\net6.0\AutoReportRegistryBuilder.dll
+C:\Projects\AutoReportRegistryBuilder\obj\Debug\net6.0\ref\AutoReportRegistryBuilder.dll
+C:\Projects\AutoReportRegistryBuilder\obj\Debug\net6.0\AutoReportRegistryBuilder.pdb
+C:\Projects\AutoReportRegistryBuilder\obj\Debug\net6.0\AutoReportRegistryBuilder.genruntimeconfig.cache
