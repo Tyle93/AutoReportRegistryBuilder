@@ -81,7 +81,7 @@ namespace AutoReportRegistryBuilder{
                 if(File.Exists($"{FPOS6Path}{reports[k]}")){
                     Console.WriteLine($"{FPOS6Path}{reports[k]} succesfully validated.");
                 }else if(reports[k] == ""){
-                    Console.WriteLine($"{k} has no associated executable.");
+                    Console.WriteLine($"{k} has no associated executable. {reports[k]}");
                 }else{
                     Console.Error.WriteLine($"{FPOS6Path}{reports[k]} not found!");
                 }
