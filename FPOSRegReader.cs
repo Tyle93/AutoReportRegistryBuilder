@@ -4,10 +4,13 @@ using Microsoft.Win32;
 namespace AutoReportRegistryBuilder{
      public static class FPOSRegReader{
         static Dictionary<String,String> reports = new ();
-        private const string FPOS5Path = "C:\\FPOS5\\bin\\";
-        private const string FPOS6Path = "C:\\FPOS\\bin\\";
-        static string FPOSRegistryPath = "\\SOFTWARE\\Future P.O.S.\\";
-        static RegistryKey? FPOSRegistryKey = (RegistryKey?)Registry.CurrentUser.GetValue(FPOSRegistryPath);
+        static private readonly string FPOSPath;
+        //Registry Path to Future Install Path entry.
+        static string FPOSRegistryInstallPath = "\\SOFTWARE\\Future P.O.S.\\DIRECTORIES";
+        //Registry Path to where Future stores the auto report entries.
+        static string FPOSLocalMachineRegistryPath = "\\SOFTWARE\\WOW6432Node\\Future P.O.S.";
+        static RegistryKey? FPOSRegistryKey = (RegistryKey?)Registry.CurrentUser.GetValue(FPOSRegistryInstallPath);
+        static RegistryKey? FPOSLocalMachineKey = (RegistryKey?)Registry.LocalMachine.GetValue(FPOSLocalMachineRegistryPath);
         //Initializes the Reports Dictionary with the report types as the key 
         //and the name of the associated execuatable as the value.
         private static void init(){
@@ -22,9 +25,9 @@ namespace AutoReportRegistryBuilder{
             reports["Comparative Item Sales Report"] = "Comparative Report";
             reports["Cumulative Sales Report Report"] = "CmSlsRpt.exe";
             reports["Daily Sales by Month Report"] = "DailySalesByMonth.exe";
-            reports["Item Costing Report"] = "";
-            reports["Item Sales Report"] = "";
-            reports["Movement Report"] = "";
+            reports["Item Costing Report"] = "icrpt.exe";
+            reports["Item Sales Report"] = "ItemSalesReport.exe";
+            reports["Movement Report"] = "movrpt.exe";
             reports["Revenue Center Report"] = "";
             reports["Top/Bottom Movers Report"] = "";
             reports["Weekly Movement Report"] = "";
@@ -39,8 +42,7 @@ namespace AutoReportRegistryBuilder{
             reports["Employee Promo Sales"] = "";
             reports["Employee Sales By Department Report"] = "";
             reports["Employee Timecard Report"] = "";
-            reports["Employee Wage Report"] = "";
-            reports["Sales Performance Report"] = "";
+            reports["Employee Wage Report"] = "Wagerpt.exe";
             reports["Server Wage Audit Report"] = "";
             reports["Customer Charge Report"] = "";
             reports["Customer Loyalty Report"] = "";
@@ -57,6 +59,12 @@ namespace AutoReportRegistryBuilder{
             reports["Paid Out Report"] = "pdoutrpt.exe";
             reports["Voided Items Report"] = "virpt.exe";
         }
+
+        private static void getInstallPath(){
+        
+        }
+
+  
         static IFPOSRegEntry[]? readFile(string filePath){
             
             return null;
@@ -74,16 +82,16 @@ namespace AutoReportRegistryBuilder{
         }   
         static FPOSRegReader(){
             init();
+            //FPOSPath = FPOSRegistryKey.ToString
+            
         }
 
         public static void exeCheck(){
             foreach(var k in reports.Keys){
-                if(File.Exists($"{FPOS6Path}{reports[k]}")){
-                    Console.WriteLine($"{FPOS6Path}{reports[k]} succesfully validated.");
+                if(File.Exists($"{FPOSPath}{reports[k]}")){
+                    Console.WriteLine($"{FPOSPath}{reports[k]} succesfully validated.");
                 }else if(reports[k] == ""){
-                    Console.WriteLine($"{k} has no associated executable. {reports[k]}");
-                }else{
-                    Console.Error.WriteLine($"{FPOS6Path}{reports[k]} not found!");
+                    Console.WriteLine($"{k} has no associated executable.");
                 }
             }
         }
