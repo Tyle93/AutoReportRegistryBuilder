@@ -4,13 +4,13 @@ using Microsoft.Win32;
 namespace AutoReportRegistryBuilder{
      public static class FPOSRegReader{
         static Dictionary<String,String> reports = new ();
-        static private readonly string FPOSPath;
+        static private readonly string? FPOSPath;
         //Registry Path to Future Install Path entry.
+        static private readonly string FPOSExePath = "\\bin\\";
         static string FPOSRegistryInstallPath = "\\SOFTWARE\\Future P.O.S.\\DIRECTORIES";
         //Registry Path to where Future stores the auto report entries.
-        static string FPOSLocalMachineRegistryPath = "\\SOFTWARE\\WOW6432Node\\Future P.O.S.";
+        static string FPOSLocalMachineRegistryPath = "HKEY_LOCAL_MACHINE\\SOFTWARE\\WOW6432Node\\Future P.O.S.\\DIRECTORIES";
         static RegistryKey? FPOSRegistryKey = (RegistryKey?)Registry.CurrentUser.GetValue(FPOSRegistryInstallPath);
-        static RegistryKey? FPOSLocalMachineKey = (RegistryKey?)Registry.LocalMachine.GetValue(FPOSLocalMachineRegistryPath);
         //Initializes the Reports Dictionary with the report types as the key 
         //and the name of the associated execuatable as the value.
         private static void init(){
@@ -82,8 +82,8 @@ namespace AutoReportRegistryBuilder{
         }   
         static FPOSRegReader(){
             init();
-            //FPOSPath = FPOSRegistryKey.ToString
-            
+            FPOSPath = (string)Registry.GetValue(FPOSLocalMachineRegistryPath, "FPOS Directory", null);
+            Console.WriteLine(FPOSPath);
         }
 
         public static void exeCheck(){
