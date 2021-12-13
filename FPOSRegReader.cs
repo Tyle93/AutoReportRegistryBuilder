@@ -9,7 +9,7 @@ namespace AutoReportRegistryBuilder{
         static private readonly string FPOSExePath = "\\bin\\";
         static string FPOSRegistryInstallPath = "\\SOFTWARE\\Future P.O.S.\\DIRECTORIES";
         //Registry Path to where Future stores the auto report entries.
-        static string FPOSLocalMachineRegistryPath = "HKEY_LOCAL_MACHINE\\SOFTWARE\\WOW6432Node\\Future P.O.S.\\DIRECTORIES";
+        static string FPOSLocalMachineRegistryPath = "HKEY_LOCAL_MACHINE\\SOFTWARE\\WOW6432Node\\Future P.O.S.\\DIRECTORIES\\";
         static RegistryKey? FPOSRegistryKey = (RegistryKey?)Registry.CurrentUser.GetValue(FPOSRegistryInstallPath);
         //Initializes the Reports Dictionary with the report types as the key 
         //and the name of the associated execuatable as the value.
@@ -83,7 +83,7 @@ namespace AutoReportRegistryBuilder{
         static FPOSRegReader(){
             init();
             FPOSPath = (string)Registry.GetValue(FPOSLocalMachineRegistryPath, "FPOS Directory", null);
-            Console.WriteLine(FPOSPath);
+            Console.WriteLine($"FPOSPath : {FPOSPath}");
         }
 
         public static void exeCheck(){
