@@ -11,16 +11,17 @@ Regex rx = new Regex(reportRegex);
 
 List<string> entries = new ();
 
-if(regKey != null){
-    foreach(var s in regKey.GetSubKeyNames()){
-        if(rx.IsMatch(s)){
-            entries.Add(s);
-            //Console.WriteLine(s);
-        }     
-    }
-}else{
-    Console.WriteLine("No Entries Found.");
-}
+Console.WriteLine(FPOSRegReader.getPath());
+//if(regKey != null){
+//    foreach(var s in regKey.GetSubKeyNames()){
+//        if(rx.IsMatch(s)){
+//            entries.Add(s);
+//            //Console.WriteLine(s);
+//        }     
+//    }
+//}else{
+//    Console.WriteLine("No Entries Found.");
+//}
 
 //FPOSRegReader.exeCheck();
 //foreach(string s in entries){

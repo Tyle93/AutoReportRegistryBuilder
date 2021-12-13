@@ -76,14 +76,16 @@ namespace AutoReportRegistryBuilder{
                 return reports[reportType];
             }catch(KeyNotFoundException ex){
                 Console.WriteLine(ex.Message);
-                return "";
+                return null;
             }
             
         }   
+        public static string? getPath(){
+            return FPOSPath;
+        }
         static FPOSRegReader(){
             init();
-            FPOSPath = (string)Registry.GetValue(FPOSLocalMachineRegistryPath, "FPOS Directory", null);
-            Console.WriteLine($"FPOSPath : {FPOSPath}");
+            FPOSPath = (string)Registry.GetValue(FPOSLocalMachineRegistryPath, "FPOS Directory", null) + FPOSExePath;
         }
 
         public static void exeCheck(){
